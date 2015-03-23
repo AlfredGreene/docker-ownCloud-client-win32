@@ -2,4 +2,4 @@
 
 ### Installation
 
-    docker pull danimo/hdocker-ownCloud-client-win32
+    docker pull danimo/docker-owncloud-client-win32
