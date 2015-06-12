@@ -29,6 +29,7 @@ RUN zypper --non-interactive --gpg-auto-import-keys install mingw32-cross-nsis-p
 # Work around compiler-related crash bug by deploying older binaries.
 ADD https://download.owncloud.com/desktop/stable/build_artifacts/Qt5WebKit.dll /usr/i686-w64-mingw32/sys-root/mingw/bin/
 ADD https://download.owncloud.com/desktop/stable/build_artifacts/Qt5WebKitWidgets.dll /usr/i686-w64-mingw32/sys-root/mingw/bin/
+RUN chmod 644 /usr/i686-w64-mingw32/sys-root/mingw/bin/Qt5WebKit*.dll
 
 CMD /bin/bash
 
