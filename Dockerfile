@@ -20,11 +20,8 @@ RUN zypper --non-interactive --gpg-auto-import-keys install cmake make mingw32-c
 # RPM depends on curl for installs from HTTP
 RUN zypper --non-interactive --gpg-auto-import-keys install curl
 
-# sudo needed for building as user
-RUN zypper --non-interactive --gpg-auto-import-keys install sudo
-
-# Use packaged UAC dependencies
-RUN zypper --non-interactive --gpg-auto-import-keys install mingw32-cross-nsis-plugin-uac mingw32-cross-nsis-plugin-nsprocess
+RUN rpm -ivh http://download.tomahawk-player.org/packman/mingw:32/openSUSE_12.1/x86_64/mingw32-cross-nsis-plugin-processes-0-1.1.x86_64.rpm
+RUN rpm -ivh http://download.tomahawk-player.org/packman/mingw:32/openSUSE_12.1/x86_64/mingw32-cross-nsis-plugin-uac-0-3.1.x86_64.rpm
 
 # Work around compiler-related crash bug by deploying older binaries.
 ADD https://download.owncloud.com/desktop/stable/build_artifacts/Qt5WebKit.dll /usr/i686-w64-mingw32/sys-root/mingw/bin/
