@@ -5,11 +5,11 @@ MAINTAINER Daniel Molkentin <danimo@owncloud.com>
 ENV TERM ansi
 ENV HOME /root
 
-ENV REFRESHED_AT 20150801
+ENV REFRESHED_AT 20150802
 
 RUN zypper --non-interactive --gpg-auto-import-keys refresh
 RUN zypper --non-interactive --gpg-auto-import-keys ar http://download.opensuse.org/repositories/windows:/mingw/openSUSE_13.2/windows:mingw.repo
-RUN zypper --non-interactive --gpg-auto-import-keys ar http://download.opensuse.org/repositories/windows:/mingw:/win32/openSUSE_13.2/windows:mingw:win32.repo
+RUN zypper --non-interactive --gpg-auto-import-keys ar http://download.opensuse.org/repositories/home:/danimo:/branches:/windows:/mingw:/win32/openSUSE_13.2/home:danimo:branches:windows:mingw:win32.repo
 RUN zypper --non-interactive --gpg-auto-import-keys install cmake make mingw32-cross-binutils mingw32-cross-cpp mingw32-cross-gcc \
 	              mingw32-cross-gcc-c++ mingw32-cross-pkg-config mingw32-filesystem \
         	      mingw32-headers mingw32-runtime site-config \ 
@@ -27,11 +27,6 @@ RUN zypper --non-interactive --gpg-auto-import-keys install sudo
 
 # Use packaged UAC dependencies
 RUN zypper --non-interactive --gpg-auto-import-keys install mingw32-cross-nsis-plugin-uac mingw32-cross-nsis-plugin-nsprocess
-
-# Work around compiler-related crash bug by deploying older binaries.
-ADD https://download.owncloud.com/desktop/stable/build_artifacts/Qt5WebKit.dll /usr/i686-w64-mingw32/sys-root/mingw/bin/
-ADD https://download.owncloud.com/desktop/stable/build_artifacts/Qt5WebKitWidgets.dll /usr/i686-w64-mingw32/sys-root/mingw/bin/
-RUN chmod 644 /usr/i686-w64-mingw32/sys-root/mingw/bin/Qt5WebKit*.dll
 
 CMD /bin/bash
 
