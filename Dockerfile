@@ -9,6 +9,7 @@ ENV REFRESHED_AT 20151106
 
 RUN zypper --non-interactive --gpg-auto-import-keys refresh
 RUN zypper --non-interactive --gpg-auto-import-keys ar http://download.opensuse.org/repositories/windows:/mingw/openSUSE_13.2/windows:mingw.repo
+RUN zypper --non-interactive --gpg-auto-import-keys ar http://download.opensuse.org/repositories/isv:ownCloud:toolchains:mingw:win32:stable/openSUSE_13.2/isv:ownCloud:toolchains:mingw:win32:stable.repo
 RUN zypper --non-interactive --gpg-auto-import-keys ar http://download.opensuse.org/repositories/isv:ownCloud:toolchains:mingw:win32:devel/openSUSE_13.2/isv:ownCloud:toolchains:mingw:win32:devel.repo
 RUN zypper --non-interactive --gpg-auto-import-keys install cmake make mingw32-cross-binutils mingw32-cross-cpp mingw32-cross-gcc \
 	              mingw32-cross-gcc-c++ mingw32-cross-pkg-config mingw32-filesystem \
