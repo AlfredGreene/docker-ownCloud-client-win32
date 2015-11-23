@@ -29,5 +29,8 @@ RUN zypper --non-interactive --gpg-auto-import-keys install sudo
 # Use packaged UAC dependencies
 RUN zypper --non-interactive --gpg-auto-import-keys install mingw32-cross-nsis-plugin-uac mingw32-cross-nsis-plugin-nsprocess
 
+# Required for checksumming (CERN)
+RUN zypper --non-interactive --gpg-auto-import-keys install mingw32-zlib-devel 
+
 CMD /bin/bash
 
