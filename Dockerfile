@@ -32,5 +32,8 @@ RUN zypper --non-interactive --gpg-auto-import-keys install mingw32-cross-nsis-p
 # Required for checksumming (CERN)
 RUN zypper --non-interactive --gpg-auto-import-keys install mingw32-zlib-devel 
 
+# Required for windres not to crash
+RUN zypper --non-interactive --gpg-auto-import-keys install glibc-locale
+
 CMD /bin/bash
 
