@@ -5,7 +5,7 @@ MAINTAINER Daniel Molkentin <danimo@owncloud.com>
 ENV TERM ansi
 ENV HOME /root
 
-ENV REFRESHED_AT 20160125
+ENV REFRESHED_AT 20160510
 
 RUN zypper --non-interactive --gpg-auto-import-keys refresh
 RUN zypper --non-interactive --gpg-auto-import-keys ar http://download.opensuse.org/repositories/windows:/mingw/openSUSE_13.2/windows:mingw.repo
