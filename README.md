@@ -2,4 +2,4 @@
 
 ### Installation
 
-    docker pull danimo/docker-owncloud-client-win32
+    docker pull guruz/docker-owncloud-client-win32
