@@ -2,4 +2,5 @@
 
 ### Installation
 
-    docker pull guruz/docker-owncloud-client-win32
+    docker pull owncloud/docker-owncloud-client-win32
+

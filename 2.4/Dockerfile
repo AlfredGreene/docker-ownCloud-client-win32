@@ -1,11 +1,12 @@
 FROM opensuse:42.1
+# Use with client branch 2.4
 
-MAINTAINER Markus Goetz <guruz@owncloud.com>
+MAINTAINER Juergen Weigert <jw@owncloud.com>
 
 ENV TERM ansi
 ENV HOME /root
 
-ENV REFRESHED_AT 20170104
+ENV REFRESHED_AT 20170710
 
 RUN zypper --non-interactive --gpg-auto-import-keys refresh
 RUN zypper --non-interactive --gpg-auto-import-keys ar http://download.opensuse.org/repositories/windows:/mingw/openSUSE_Leap_42.1/windows:mingw.repo
@@ -34,5 +35,9 @@ RUN zypper --non-interactive --gpg-auto-import-keys install mingw32-zlib-devel
 
 # Required for windres not to crash
 RUN zypper --non-interactive --gpg-auto-import-keys install glibc-locale
+
+# Disable the mingw repos to prevent auto-updates.
+RUN zypper --non-interactive mr -d http://download.opensuse.org/repositories/windows:/mingw/openSUSE_Leap_42.1
+RUN zypper --non-interactive mr -d http://download.opensuse.org/repositories/isv:/ownCloud:/toolchains:/mingw:/win32:/2.3/openSUSE_Leap_42.1
 
 CMD /bin/bash
